@@ -14,7 +14,7 @@ docs = loader.load()
 text_splitter = RecursiveCharacterTextSplitter()
 documents = text_splitter.split_documents(docs)
 
-groq = "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"
+groq = "" # mention your groq api key here
 
 embeddings = HuggingFaceEmbeddings(
     model_name="mixedbread-ai/mxbai-embed-large-v1",
