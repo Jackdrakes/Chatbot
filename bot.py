@@ -7,6 +7,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain_community.embeddings import HuggingFaceEmbeddings
+import streamlit as st 
 
 loader = PyPDFDirectoryLoader("pdfs")
 docs = loader.load()
@@ -14,7 +15,7 @@ docs = loader.load()
 text_splitter = RecursiveCharacterTextSplitter()
 documents = text_splitter.split_documents(docs)
 
-groq = "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"
+groq = st.secrets["groq_api"]
 
 embeddings = HuggingFaceEmbeddings(
     model_name="mixedbread-ai/mxbai-embed-large-v1",
